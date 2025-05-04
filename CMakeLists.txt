@@ -43,6 +43,31 @@
 cmake_minimum_required(VERSION 2.8.12)
 project(OSAL C)
 
+# workaround for cmake 30+
+set(PICO_PROMOTE_COMMON_SCOPE_VARS "")
+list(APPEND PICO_PROMOTE_COMMON_SCOPE_VARS PICO_C_COMPILER_IS_CLANG)
+
+set(OSAL_SYSTEM_BSPTYPE     "generic-freertos")
+set(PICO_SDK_PATH "/opt/cfs/lib/pico-sdk/")
+set(FREERTOS_KERNEL_PATH "/opt/cfs/lib/FreeRTOS-Kernel/")
+set(CUSTOM_FREERTOS_FILESYSTEM "1")
+
+# FreeRTOS
+set(OSAL_FREERTOS_INC_DIR "/opt/cfs/lib/include")
+set(OSAL_FREERTOS_SRC_DIR "/opt/cfs/lib/freertos")
+/Users/troybates/Documents/grad_school/ENPM818J/FreeRTOS-SMP-Demos/FreeRTOS/Demo/CORTEX_M0+_RP2040/Standard/FreeRTOSConfig.h
+include_directories(${OSAL_FREERTOS_INC_DIR})
+include_directories(${OSAL_FREERTOS_SRC_DIR}/include)
+include_directories(${OSAL_FREERTOS_SRC_DIR}/portable/GCC/ARM_CM0)
+
+# Pull in SDK (must be before project)
+include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+# Pull in FreeRTOS
+include(FreeRTOS_Kernel_import.cmake)
+
+pico_sdk_init()
+
+
 # The "OSAL_EXT_SOURCE_DIR" cache variable may be set to a path
 # on the host containing extra OS/BSP implementations which are not
 # part of the open source release.

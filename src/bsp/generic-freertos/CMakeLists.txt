@@ -1,5 +1,5 @@
 include_directories(${OSAL_FREERTOS_INC_DIR})
-include_directories(${OSAL_FREERTOS_SRC_DIR}/portable/GCC/ARM_CM3)
+include_directories(${OSAL_FREERTOS_SRC_DIR}/portable/GCC/ARM_CM0)
 
 add_library(osal_generic-freertos_impl OBJECT
     src/bsp_start.c

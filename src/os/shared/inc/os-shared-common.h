@@ -125,6 +125,6 @@ void OS_IdleLoop_Impl(void);
    depending on priority levels.
 
  ------------------------------------------------------------------*/
-void OS_ApplicationShutdown_Impl(void);
+int OS_ApplicationShutdown_Impl(void);
 
 #endif /* INCLUDE_OS_SHARED_COMMON_H_ */

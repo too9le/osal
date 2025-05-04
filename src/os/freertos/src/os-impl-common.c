@@ -53,7 +53,7 @@ void OS_IdleLoop_Impl()
     for(;;){}
 } 
 
-void OS_ApplicationShutdown_Impl()
+int OS_ApplicationShutdown_Impl()
 {
     return OS_ERROR; // @FIXME
 } 

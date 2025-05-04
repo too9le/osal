@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/osal_freertos_impl.dir/__/portable/os-impl-console-bsp.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/__/portable/os-impl-console-bsp.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/__/portable/os-impl-no-loader.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/__/portable/os-impl-no-loader.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/__/portable/os-impl-no-network.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/__/portable/os-impl-no-network.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/__/portable/os-impl-no-sockets.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/__/portable/os-impl-no-sockets.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-binsem.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-binsem.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-common.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-common.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-console.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-console.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-countsem.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-countsem.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-idmap.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-idmap.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-mutex.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-mutex.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-queue.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-queue.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-task.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-task.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-timebase.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/src/os-impl-timebase.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/todo/os-impl-file.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/todo/os-impl-file.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/todo/os-impl-heap.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/todo/os-impl-heap.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/todo/os-impl-module.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/todo/os-impl-module.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/todo/os-impl-network.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/todo/os-impl-network.c.o.d"
+  "CMakeFiles/osal_freertos_impl.dir/todo/os-impl-sockets.c.o"
+  "CMakeFiles/osal_freertos_impl.dir/todo/os-impl-sockets.c.o.d"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/osal_freertos_impl.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
