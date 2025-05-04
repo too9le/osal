@@ -53,7 +53,8 @@ set(FREERTOS_KERNEL_PATH "/opt/cfs/lib/FreeRTOS-Kernel")
 set(CUSTOM_FREERTOS_FILESYSTEM "1")
 
 # FreeRTOS
-set(OSAL_FREERTOS_INC_DIR "/opt/cfs/include")
+set(OSAL_FREERTOS_INC_DIR "/opt/cfs/lib/include")
+
 set(OSAL_FREERTOS_SRC_DIR "/opt/cfs/lib/freertos")
 
 include_directories(${OSAL_FREERTOS_INC_DIR})
