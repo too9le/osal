@@ -41,7 +41,6 @@
 #
 ######################################################################
 cmake_minimum_required(VERSION 2.8.12)
-project(OSAL C)
 
 # workaround for cmake 30+
 set(PICO_PROMOTE_COMMON_SCOPE_VARS "")
@@ -65,6 +64,11 @@ include_directories(${OSAL_FREERTOS_SRC_DIR}/portable/GCC/ARM_CM0)
 include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 # Pull in FreeRTOS
 include(FreeRTOS_Kernel_import.cmake)
+
+project(OSAL C CXX ASM)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 pico_sdk_init()
 
@@ -301,7 +305,7 @@ target_include_directories(osal PRIVATE
 )
 
 # Link the OSAL with the BSP
-target_link_libraries(osal osal_bsp)
+target_link_libraries(osal osal_bsp pico_stdlib FreeRTOS-Kernel FreeRTOS-Kernel-Heap4)
 
 # propagate the BSP-specific compile flags to OSAL external library target, if defined
 if (OSAL_BSP_COMPILE_DEFINITIONS)
@@ -377,6 +381,6 @@ if (HAS_PARENT)
     set(UT_COVERAGE_LINK_FLAGS "${UT_COVERAGE_LINK_FLAGS}" PARENT_SCOPE)
 endif(HAS_PARENT)
 
-
+pico_add_extra_outputs(osal)
 
 
