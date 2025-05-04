@@ -48,7 +48,7 @@ list(APPEND PICO_PROMOTE_COMMON_SCOPE_VARS PICO_C_COMPILER_IS_CLANG)
 
 set(OSAL_SYSTEM_BSPTYPE     "generic-freertos")
 set(PICO_SDK_PATH "/opt/cfs/pico-sdk")
-set(FREERTOS_KERNEL_PATH "/opt/cfs/lib/FreeRTOS-Kernel")
+set(FREERTOS_KERNEL_PATH "/opt/cfs/lib/freertos")
 set(CUSTOM_FREERTOS_FILESYSTEM "1")
 
 # FreeRTOS
@@ -61,10 +61,12 @@ include_directories(${OSAL_FREERTOS_SRC_DIR}/include)
 include_directories(${OSAL_FREERTOS_SRC_DIR}/portable/GCC/ARM_CM0)
 
 # Pull in SDK (must be before project)
+set(PICO_LINKER_SCRIPT_PATH /opt/cfs/pico-sdk/src/rp2_common/pico_crt0/rp2040)
+set(PICO_LINKER_SCRIPT memmap_default.ld)
 include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+
 # Pull in FreeRTOS
 include(FreeRTOS_Kernel_import.cmake)
-
 project(OSAL C CXX ASM)
 
 set(CMAKE_C_STANDARD 11)
@@ -381,6 +383,9 @@ if (HAS_PARENT)
     set(UT_COVERAGE_LINK_FLAGS "${UT_COVERAGE_LINK_FLAGS}" PARENT_SCOPE)
 endif(HAS_PARENT)
 
-pico_add_extra_outputs(osal)
+
+# pico_enable_stdio_uart(my_program 0)
+
+# pico_add_extra_outputs(osal)
 
 
