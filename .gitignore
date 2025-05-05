@@ -1,2 +1,1 @@
-build/inc/
-build/cmake_install.cmake
+sbuild/*
