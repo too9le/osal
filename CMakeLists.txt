@@ -40,7 +40,7 @@
 # OSAL resources.
 #
 ######################################################################
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.13)
 
 # workaround for cmake 30+
 set(PICO_PROMOTE_COMMON_SCOPE_VARS "")
@@ -65,6 +65,11 @@ set(PICO_LINKER_SCRIPT_PATH /opt/cfs/pico-sdk/src/rp2_common/pico_crt0/rp2040)
 set(PICO_LINKER_SCRIPT memmap_default.ld)
 include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 
+set(PICO_BOARD pico CACHE STRING "Board type")
+
+# Pull in Raspberry Pi Pico SDK (must be before project)
+include(pico_sdk_import.cmake)
+
 # Pull in FreeRTOS
 include(FreeRTOS_Kernel_import.cmake)
 project(OSAL C CXX ASM)
@@ -72,15 +77,11 @@ project(OSAL C CXX ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
-set(PICO_BOARD pico CACHE STRING "Board type")
-
-# Pull in Raspberry Pi Pico SDK (must be before project)
-include(pico_sdk_import.cmake)
 
 pico_sdk_init()
 
 # Might have to change hello_world to osal to match dir name
-add_executable(hello_world
+add_executable(OSAL
     hello_world.c
 )
 
@@ -393,9 +394,9 @@ if (HAS_PARENT)
 endif(HAS_PARENT)
 
 # Might have to change hello_world to osal to match dir name
-pico_enable_stdio_usb(hello_world 1)
-pico_enable_stdio_uart(hello_world 0)
+pico_enable_stdio_usb(OSAL 1)
+pico_enable_stdio_uart(OSAL 0)
 
-pico_add_extra_outputs(hello_world)
+pico_add_extra_outputs(OSAL)
 
 
