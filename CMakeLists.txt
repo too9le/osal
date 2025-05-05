@@ -48,13 +48,13 @@ list(APPEND PICO_PROMOTE_COMMON_SCOPE_VARS PICO_C_COMPILER_IS_CLANG)
 
 set(OSAL_SYSTEM_BSPTYPE     "generic-freertos")
 set(PICO_SDK_PATH "/opt/cfs/pico-sdk")
-set(FREERTOS_KERNEL_PATH "/opt/cfs/lib/freertos")
+set(FREERTOS_KERNEL_PATH "/opt/cfs/lib/FreeRTOS-Kernel")
 set(CUSTOM_FREERTOS_FILESYSTEM "1")
 
 # FreeRTOS
 set(OSAL_FREERTOS_INC_DIR "/opt/cfs/lib/include")
 
-set(OSAL_FREERTOS_SRC_DIR "/opt/cfs/lib/freertos")
+set(OSAL_FREERTOS_SRC_DIR "/opt/cfs/lib/FreeRTOS-Kernel")
 
 include_directories(${OSAL_FREERTOS_INC_DIR})
 include_directories(${OSAL_FREERTOS_SRC_DIR}/include)

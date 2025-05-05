@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.tex": "latex",
+        "osapi.h": "c"
+    }
+}
