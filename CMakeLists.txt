@@ -63,7 +63,12 @@ include_directories(${OSAL_FREERTOS_SRC_DIR}/portable/GCC/ARM_CM0)
 # Pull in SDK (must be before project)
 set(PICO_LINKER_SCRIPT_PATH /opt/cfs/pico-sdk/src/rp2_common/pico_crt0/rp2040)
 set(PICO_LINKER_SCRIPT memmap_default.ld)
-include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+# include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+
+set(PICO_BOARD pico CACHE STRING "Board type")
+
+# # Pull in Raspberry Pi Pico SDK (must be before project)
+include(pico_sdk_import.cmake)
 
 # Pull in FreeRTOS
 include(FreeRTOS_Kernel_import.cmake)
@@ -72,10 +77,6 @@ project(OSAL C CXX ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
-set(PICO_BOARD pico CACHE STRING "Board type")
-
-# Pull in Raspberry Pi Pico SDK (must be before project)
-include(pico_sdk_import.cmake)
 
 pico_sdk_init()
 
