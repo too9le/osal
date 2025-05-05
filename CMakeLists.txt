@@ -72,6 +72,11 @@ project(OSAL C CXX ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
+set(PICO_BOARD pico CACHE STRING "Board type")
+
+# Pull in Raspberry Pi Pico SDK (must be before project)
+include(pico_sdk_import.cmake)
+
 pico_sdk_init()
 
 # Might have to change hello_world to osal to match dir name
