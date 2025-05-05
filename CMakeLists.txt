@@ -74,6 +74,10 @@ set(CMAKE_CXX_STANDARD 17)
 
 pico_sdk_init()
 
+# Might have to change hello_world to osal to match dir name
+add_executable(hello_world
+    hello_world.c
+)
 
 # The "OSAL_EXT_SOURCE_DIR" cache variable may be set to a path
 # on the host containing extra OS/BSP implementations which are not
@@ -383,9 +387,10 @@ if (HAS_PARENT)
     set(UT_COVERAGE_LINK_FLAGS "${UT_COVERAGE_LINK_FLAGS}" PARENT_SCOPE)
 endif(HAS_PARENT)
 
+# Might have to change hello_world to osal to match dir name
+pico_enable_stdio_usb(hello_world 1)
+pico_enable_stdio_uart(hello_world 0)
 
-# pico_enable_stdio_uart(my_program 0)
-
-# pico_add_extra_outputs(osal)
+pico_add_extra_outputs(hello_world)
 
 
