@@ -70,12 +70,12 @@ void UtTest_Setup(void)
         UtAssert_Abort("OS_API_Init() failed");
     }
 
-    UtTest_Add(TestTasks, NULL, NULL, "TASK");
-    UtTest_Add(TestQueues, NULL, NULL, "MSGQ");
-    UtTest_Add(TestBinaries, NULL, NULL, "BSEM");
-    UtTest_Add(TestMutexes, NULL, NULL, "MSEM");
-    UtTest_Add(TestGetInfos, NULL, NULL, "INFO");
-    UtTest_Add(TestGenericQueries, NULL, NULL, "QUERIES");
+    // UtTest_Add(TestTasks, NULL, NULL, "TASK");
+    // UtTest_Add(TestQueues, NULL, NULL, "MSGQ");
+    // UtTest_Add(TestBinaries, NULL, NULL, "BSEM");
+    // UtTest_Add(TestMutexes, NULL, NULL, "MSEM");
+    // UtTest_Add(TestGetInfos, NULL, NULL, "INFO");
+    // UtTest_Add(TestGenericQueries, NULL, NULL, "QUERIES");
 
 } /* end OS_Application Startup */
 

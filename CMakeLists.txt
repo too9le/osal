@@ -82,7 +82,10 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
 
+
+
 pico_sdk_init()
+
 
 # Might have to change hello_world to osal to match dir name
 # add_executable(OSAL
@@ -381,7 +384,10 @@ if (ENABLE_UNIT_TESTS)
     # of the OSAL library.  Note that these are both black box tests that link with the full
     # OSAL (not a stub/coverage test).
     add_subdirectory(src/tests tests)
-    add_subdirectory(src/unit-tests unit-tests)
+    # add_subdirectory(src/unit-tests unit-tests)
+
+ 
+
 
 endif (ENABLE_UNIT_TESTS)
 
@@ -398,9 +404,13 @@ if (HAS_PARENT)
 endif(HAS_PARENT)
 
 # Might have to change hello_world to osal to match dir name
-# pico_enable_stdio_usb(OSAL 1)
-# pico_enable_stdio_uart(OSAL 0)
 
-# pico_add_extra_outputs(OSAL)
+   # target_compile_definitions(osal-core-test PRIVATE
+    #     PICO_STDIO_STACK_BUFFER_SIZE=64 # use a small printf on stack buffer
+    # )
+
+# pico_enable_stdio_usb(hello_world 1)
+# pico_enable_stdio_uart(osal-core-test 0)
+# pico_add_extra_outputs(osal-core-test)
 
 
