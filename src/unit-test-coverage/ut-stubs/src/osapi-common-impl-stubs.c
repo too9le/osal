@@ -41,7 +41,7 @@ void OS_IdleLoop_Impl(void)
     UT_DEFAULT_IMPL(OS_IdleLoop_Impl);
 }
 
-void OS_ApplicationShutdown_Impl(void)
+int OS_ApplicationShutdown_Impl(void)
 {
     UT_DEFAULT_IMPL(OS_ApplicationShutdown_Impl);
 }

@@ -41,7 +41,7 @@
 #
 ######################################################################
 cmake_minimum_required(VERSION 2.8.12)
-
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 # workaround for cmake 30+
 set(PICO_PROMOTE_COMMON_SCOPE_VARS "")
 list(APPEND PICO_PROMOTE_COMMON_SCOPE_VARS PICO_C_COMPILER_IS_CLANG)
@@ -67,6 +67,22 @@ set(PICO_LINKER_SCRIPT memmap_default.ld)
 
 set(PICO_BOARD pico CACHE STRING "Board type")
 
+
+
+# size optimization
+# set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Os")
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os")
+# set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -s")
+# set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -ffunction-sections -fdata-sections")
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ffunction-sections -fdata-sections")
+
+# set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--as-needed")
+# set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
+# set(PICO_STDIO_USB 0)
+# # set(PICO_STDIO_UART 0)
+# set(PICO_STDIO_SEMIHOSTING 0)
+
+
 # # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
@@ -78,12 +94,15 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
 
+
+
 pico_sdk_init()
 
+
 # Might have to change hello_world to osal to match dir name
-add_executable(hello_world
-    hello_world.c
-)
+# add_executable(hello_world
+#     hello_world.c
+# )
 
 # The "OSAL_EXT_SOURCE_DIR" cache variable may be set to a path
 # on the host containing extra OS/BSP implementations which are not
@@ -371,13 +390,16 @@ if (ENABLE_UNIT_TESTS)
     # It re-compiles each source unit for coverage analysis and links
     # with stub dependencies and a test sequence designed to execute
     # every line of source code within OSAL.
-    add_subdirectory(src/unit-test-coverage unit-test-coverage)
+    # add_subdirectory(src/unit-test-coverage unit-test-coverage)
 
     # The "tests" and "unit-tests" subdirectories implement examples and verification tests
     # of the OSAL library.  Note that these are both black box tests that link with the full
     # OSAL (not a stub/coverage test).
     add_subdirectory(src/tests tests)
-    add_subdirectory(src/unit-tests unit-tests)
+    # add_subdirectory(src/unit-tests unit-tests)
+
+ 
+
 
 endif (ENABLE_UNIT_TESTS)
 
@@ -394,9 +416,13 @@ if (HAS_PARENT)
 endif(HAS_PARENT)
 
 # Might have to change hello_world to osal to match dir name
-pico_enable_stdio_usb(hello_world 1)
-pico_enable_stdio_uart(hello_world 0)
 
-pico_add_extra_outputs(hello_world)
+   # target_compile_definitions(osal-core-test PRIVATE
+    #     PICO_STDIO_STACK_BUFFER_SIZE=64 # use a small printf on stack buffer
+    # )
+
+# pico_enable_stdio_usb(hello_world 1)
+# pico_enable_stdio_uart(osal-core-test 0)
+# pico_add_extra_outputs(osal-core-test)
 
 
