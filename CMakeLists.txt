@@ -69,7 +69,7 @@ set(PICO_LINKER_SCRIPT memmap_default.ld)
 include(pico_sdk_import.cmake)
 
 set(PICO_BOARD pico2)
-set(PICO_PLATFORM rp2350)
+# set(PICO_PLATFORM rp2350)
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
