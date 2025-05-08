@@ -65,12 +65,11 @@ set(PICO_LINKER_SCRIPT_PATH /opt/cfs/pico-sdk/src/rp2_common/pico_crt0/rp2040)
 set(PICO_LINKER_SCRIPT memmap_default.ld)
 # include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 
-set(PICO_BOARD pico CACHE STRING "Board type")
-
 # # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-set(PICO_BOARD pico CACHE STRING "Board type")
+set(PICO_BOARD pico2)
+set(PICO_PLATFORM rp2350)
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
@@ -86,9 +85,9 @@ set(CMAKE_CXX_STANDARD 17)
 pico_sdk_init()
 
 # Might have to change hello_world to osal to match dir name
-add_executable(OSAL
-    hello_world.c
-)
+# add_executable(OSAL
+#     hello_world.c
+# )
 
 # The "OSAL_EXT_SOURCE_DIR" cache variable may be set to a path
 # on the host containing extra OS/BSP implementations which are not
@@ -376,7 +375,7 @@ if (ENABLE_UNIT_TESTS)
     # It re-compiles each source unit for coverage analysis and links
     # with stub dependencies and a test sequence designed to execute
     # every line of source code within OSAL.
-    add_subdirectory(src/unit-test-coverage unit-test-coverage)
+    # add_subdirectory(src/unit-test-coverage unit-test-coverage)
 
     # The "tests" and "unit-tests" subdirectories implement examples and verification tests
     # of the OSAL library.  Note that these are both black box tests that link with the full
@@ -399,9 +398,9 @@ if (HAS_PARENT)
 endif(HAS_PARENT)
 
 # Might have to change hello_world to osal to match dir name
-pico_enable_stdio_usb(OSAL 1)
-pico_enable_stdio_uart(OSAL 0)
+# pico_enable_stdio_usb(OSAL 1)
+# pico_enable_stdio_uart(OSAL 0)
 
-pico_add_extra_outputs(OSAL)
+# pico_add_extra_outputs(OSAL)
 
 

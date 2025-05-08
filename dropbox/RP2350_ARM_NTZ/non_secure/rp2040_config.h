@@ -74,6 +74,7 @@
     #endif
 #endif
 
+#if (configNUMBER_OF_CORES != 1)
 /* This SMP port requires two spin locks, which are claimed from the SDK.
  * the spin lock numbers to be used are defined statically and defaulted here
  * to the values nominally set aside for RTOS by the SDK */
@@ -83,6 +84,7 @@
 
 #ifndef configSMP_SPINLOCK_1
     #define configSMP_SPINLOCK_1    PICO_SPINLOCK_ID_OS2
+#endif
 #endif
 
 /* *INDENT-OFF* */
